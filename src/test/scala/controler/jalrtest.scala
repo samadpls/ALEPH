@@ -3,11 +3,12 @@ import chisel3._
 import org.scalatest._
 import chiseltest._
 class jalrtest extends FreeSpec with ChiselScalatestTester{
-    "immediate Test" in {
+    "jalr Test" in {
         test(new jalr()){c=>
-        c.io.addr.poke(10.S)
-        c.io.pc_addr.poke(1.S)
-        c.io.out.expect(11.S)
+        c.io.addr.poke(1.S)
+        c.io.pc_addr.poke(4.S)
+        c.clock.step(10)
+        c.io.out.expect(4.S)
         }
     }
 }

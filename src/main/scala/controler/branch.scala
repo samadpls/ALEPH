@@ -18,10 +18,10 @@ switch(io.alu_opp){
     is("b10011".U){xy:=io.arg_x =/= io.arg_y} //not equal
     is("b10100".U){xy:=io.arg_x<io.arg_y} //lesser equal
     is("b10101".U){xy:=io.arg_x>io.arg_y }// greater equal
-    is("b10110".U){xy:=io.arg_x<=io.arg_y} //lesser than unsign
+    is("b10110".U){xy:=io.arg_x<io.arg_y} //lesser than unsign
     is("b10111".U){xy:=io.arg_x>=io.arg_y} //greater than unsign
 }
-io.br_taken:=xy && io.branch
+io.br_taken:=xy & io.branch
 // End your code here
 // Well , you can actually write classes too . So , technically you have no limit ; )
 }

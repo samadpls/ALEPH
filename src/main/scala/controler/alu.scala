@@ -17,21 +17,27 @@ class ALU4 extends Module{
         is("b00000".U){ io.out:=io.in1+io.in2}//add addi
         is("b00001".U){io.out:=io.in1<<io.in2(4,0) } //sll
         is("b00010".U){  
-            when(io.in1>io.in2) 
+            when(io.in1<io.in2) 
             {io.out:=1.S}.otherwise{
                 io.out:=0.S}} //slt
+        is("b00011".U ){
+            when(io.in1.asUInt<io.in2.asUInt){io.out:=1.S}.otherwise{io.out:=0.S}
+        }           // SLTU/SLTUI/BLTU
+        is("b10110".U){
+            when(io.in1.asUInt<io.in2.asUInt){io.out:=1.S}.otherwise{io.out:=0.S}
+        }     
         is("b00100".U){io.out:=io.in1 ^ io.in2} //xor
         is("b00101".U){io.out:=(io.in1.asUInt>>io.in2(4,0).asUInt).asSInt} //srl
         is("b00110".U){io.out:=io.in1| io.in2} //or
         is("b00111".U){io.out:=io.in1 & io.in2} //and
         is("b01000".U){io.out:=io.in1 - io.in2} //sub
         is("b01101".U){io.out:=(io.in1.asUInt>>io.in2(4,0).asUInt).asSInt} //sra
-        is("b11111".U){io.out:= io.in1} //jal
+        is("b11111".U){io.out:= io.in1} //jal jarlr
 
 
     }
 
-    
+
 }
 
 

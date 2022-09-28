@@ -49,11 +49,10 @@ class Top extends Module{
     alu_cnt.io.func3:=inst_mem.io.inst(14,12)
     alu_cnt.io.func7:=inst_mem.io.inst(30)
 
-    val mux1_alu= MuxLookup (controler.io.op_a, 0.S, Array (
-                ("b00". U) -> reg_file.io.rd1 ,
-                ("b01". U) -> pc.io.pc_4.asSInt,
-                ("b10". U) -> pc.io.pc_out.asSInt ,
-                ("b11". U) -> reg_file.io.rd1)
+    alu.io.in1:= MuxCase ( 0.S, Array (
+                (controler.io.op_a=== "b00". U ||controler.io.op_a=== "b11". U) -> reg_file.io.rd1 ,
+                (controler.io.op_a=== "b01". U) -> pc.io.pc_4.asSInt,
+                (controler.io.op_a=== "b10". U) -> pc.io.pc_out.asSInt )
              )
      //imm '
     
@@ -64,11 +63,9 @@ class Top extends Module{
                 ("b11".U) -> reg_file.io.rd2)
              )
     //data ka d wala mux         
-    //val mux2_alu= Mux (controler.io.op_b , mux_imm, reg_file.io.rd2 ) 
-
+    val mux2_alu= Mux (controler.io.op_b , mux_imm, reg_file.io.rd2 ) 
     alu.io.alu_Op:=alu_cnt.io.x
-    alu.io.in1:=mux1_alu
-    alu.io.in2:=mux_imm
+    alu.io.in2:=mux2_alu
     //branch     //alu
     branch.io.arg_x:= 0.S
     branch.io.arg_y:= 0.S
@@ -109,13 +106,13 @@ class Top extends Module{
    
 
     //jal r
-    Jalr.io.pc_addr:=reg_file.io.rd1
-    Jalr.io.addr:=imm.io.i_imm
+    Jalr.io.pc_addr:= imm.io.i_imm
+    Jalr.io.addr:=reg_file.io.rd1
 
-    val anndd=controler.io.branch  & branch.io.br_taken
+    
 
     //mux chota wala
-    val mux_b=Mux(anndd,pc.io.pc_4,imm.io.sb_imm.asUInt)
+    val mux_b=Mux(branch.io.br_taken,pc.io.pc_4,imm.io.sb_imm.asUInt)
     
     //mux bara wala
     val mux_d= MuxLookup (controler.io.next_pc, false .B, Array (
@@ -133,7 +130,7 @@ class Top extends Module{
     data_mem.io.MemRead:=controler.io.memread
 
     //data mux
-    val data_mux= Mux(controler.io.memtoreg,alu.io.out,data_mem.io.out)
+    val data_mux= Mux(controler.io.memtoreg,data_mem.io.out,alu.io.out)
     reg_file.io.WriteData:=data_mux
 
 }
