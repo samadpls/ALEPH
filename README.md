@@ -8,7 +8,7 @@
 First of all get started by cloning this repository on your machine.
 
 ```ruby
-git clone hhttps://github.com/samadpls/ALIF.git
+git clone hhttps://github.com/samadpls/ALEPH.git
 ```
 
 Create a .txt file and place the ***hexadecimal*** code of your instructions simulated on ***Venus*** (RISC-V Simulator)\
