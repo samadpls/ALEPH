@@ -45,7 +45,7 @@ sbt
 ```
 When the terminal changes to this type
 ```ruby
-sbt:>
+sbt:RISCV-single-cycle>
 ```
 Enter this command
 ```ruby
