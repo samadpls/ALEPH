@@ -8,13 +8,13 @@
 First of all get started by cloning this repository on your machine.
 
 ```ruby
-git clone https://github.com/samadpls/RISCV-single-cycle.git
+git clone hhttps://github.com/samadpls/ALIF.git
 ```
 
 Create a .txt file and place the ***hexadecimal*** code of your instructions simulated on ***Venus*** (RISC-V Simulator)\
 Each instruction's hexadecimal code must be on seperate line as following. This program consists of 9 instructions.
 
-```
+```ruby
 00500113
 00500193
 014000EF
