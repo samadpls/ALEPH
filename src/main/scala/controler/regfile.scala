@@ -14,7 +14,7 @@ class reg extends Module{
 		val rd2 = Output(SInt(32.W))
 	})
 	
-	val register = Reg(Vec(32,SInt(32.W)))	
+	val register = RegInit(VecInit(Seq.fill(32)(0.S(32.W))))	
 	register(0) := (0.S)
 	dontTouch(io.rd1)
 	dontTouch(io.rd2)
