@@ -1,16 +1,19 @@
-# RISC-V Single Cycle Core
-### Designed by Abdul Samad Siddiqui
-\
-\
+<div align='center'><img src="https://readme-typing-svg.demolab.com?font=Arial&size=22&pause=1000&color=F7F7F7&multiline=true&width=435&lines=RISC-V+Single+Cycle+Core" alt="Typing SVG" /><br>
+<img src="https://readme-typing-svg.demolab.com?font=Arial&size=18&pause=1000&color=F7F7F7&multiline=true&width=435&lines=Designed+by+Abdul+Samad+Siddiqui" alt="Typing SVG" />
+</div>
+<br>
+
 <img src='Single Cycle RISC-V Core.png'>
-\
-\
-First of all get started by cloning this repository on your machine.  
+<br>
+First of all get started by cloning this repository on your machine.
+
 ```ruby
 git clone https://github.com/samadpls/RISCV-single-cycle.git
 ```
+
 Create a .txt file and place the ***hexadecimal*** code of your instructions simulated on ***Venus*** (RISC-V Simulator)\
 Each instruction's hexadecimal code must be on seperate line as following. This program consists of 9 instructions.
+
 ```
 00500113
 00500193
