@@ -119,12 +119,12 @@ class controler extends Module {
             io.extend_sel:=0.U
 
         }
-        is("b0010111".U){ //U-type b0010111
+        is("b0110111".U){ //U-type b0010111
             io.regwrite:=1.B
             io.aluop:="b110".U
             io.op_a:="b10".U
             io.op_b:=1.B
-            io.next_pc:="b11".U
+            io.next_pc:="b00".U
             io.extend_sel:="b10".U 
             io.memwrite:=0.B
             io.branch:=0.B
