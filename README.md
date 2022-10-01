@@ -3,7 +3,7 @@
 </div>
 <br>
 
-<img src='Single Cycle RISC-V Core.png'>
+<img src='Single Cycle RISC-V Core.png' height=600 width=100%>
 <br>
 First of all get started by cloning this repository on your machine.
 
