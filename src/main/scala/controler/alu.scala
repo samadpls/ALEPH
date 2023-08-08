@@ -3,7 +3,7 @@ import chisel3._
 import chisel3.util._
 
 class ALUIO4 extends Bundle {
-    val alu_Op = Input( UInt ( 5.W ) )
+    val alu_Op = Input(UInt(5.W))
     val in1=Input(SInt(32.W))
     val in2=Input(SInt(32.W))
     val out=Output(SInt(32.W))

@@ -18,7 +18,7 @@
   {
     "class":"firrtl.annotations.LoadMemoryAnnotation",
     "target":"Top.InstMem.imem",
-    "fileName":"D:/merl/Scala-Chisel-Learning-Journey/src/main/scala/controler/text.txt",
+    "fileName":"E:/MERL-Vector/MERL/ALEPH/src/main/scala/controler/text.txt",
     "hexOrBinary":"h",
     "originalMemoryNameOpt":"imem"
   },

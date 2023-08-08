@@ -11,6 +11,6 @@ class InstMem extends Module{
     val io = IO (new inst() )
 // INST_MEM_LEN in Bytes or INST_MEM_LEN / 4 in words
     val imem = Mem ( 32 , UInt ( 32.W ) )
-    loadMemoryFromFile ( imem , "D:/merl/Scala-Chisel-Learning-Journey/src/main/scala/controler/text.txt" )
+    loadMemoryFromFile ( imem , "E:/MERL-Vector/MERL/ALEPH/src/main/scala/controler/text.txt" )
     io.inst := imem.read( io.addr )
 }

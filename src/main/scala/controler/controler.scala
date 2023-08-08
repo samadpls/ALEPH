@@ -30,6 +30,45 @@ class controler extends Module {
         io.extend_sel:=0.U
         io.next_pc:="b00".U
     switch (io.opcod){
+            is("b1010111".U){
+            when (configtype ==="b00".U || configtype ==="b01".U){ // vsetvli
+                io.regwrite:=1.B
+                io.memread:=0.B
+                io.memtoreg:=0.B
+                io.aluop:="b100".U 
+                io.op_b:=1.B
+                io.memwrite:=0.B
+                io.branch:=0.B
+                io.op_a:="b00".U
+                io.extend_sel:=0.U
+                io.next_pc:="b00".U
+
+            }
+            .elsewhen(configtype ==="b10".U){ // vsetivli
+                io.regwrite:=1.B
+                io.memread:=1.B
+                io.memtoreg:=1.B
+                io.aluop:="b100".U 
+                io.op_b:=1.B
+                io.memwrite:=0.B
+                io.branch:=0.B
+                io.op_a:="b00".U
+                io.extend_sel:=0.U
+                io.next_pc:="b00".U
+            }
+            .otherwise{
+                io.regwrite:=1.B
+                io.memwrite:=0.B
+                io.branch:=0.B
+                io.memread :=0.B
+                io.memtoreg:=0.B
+                io.aluop:="b000".U
+                io.op_a:="b00".U
+                io.op_b:=0.B
+                io.extend_sel:=0.U
+                io.next_pc:="b00".U
+            }
+        }
         is("b0010011".U){ //I-type 
         io.regwrite:=1.B
         io.aluop:="b001".U
@@ -94,11 +133,11 @@ class controler extends Module {
           }
         is("b0100011".U){ //S-type b0100011
             io.memwrite:=1.B
-            io.regwrite:=1.B
+            io.regwrite:=0.B
             io.aluop:="b101".U
             io.op_b:=1.B
             io.extend_sel:="b01".U
-            io.memwrite:=0.B
+            //io.memwrite:=0.B
             io.branch:=0.B
             io.memread :=0.B
             io.memtoreg:=0.B

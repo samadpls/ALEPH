@@ -1,0 +1,178 @@
+$date
+2023-08-05T15:46+0000
+$end
+$version
+0.2
+$end
+$comment
+
+$end
+$timescale 1ns  $end
+$scope module controler $end
+ $var wire 1 ! _GEN_37 $end
+ $var wire 1 " io_regwrite $end
+ $var wire 1 # _GEN_22 $end
+ $var wire 1 $ _GEN_16 $end
+ $var wire 3 % _GEN_2 $end
+ $var wire 3 & _GEN_10 $end
+ $var wire 1 ' _T $end
+ $var wire 1 ( _GEN_31 $end
+ $var wire 1 ) io_branch $end
+ $var wire 1 * _GEN_19 $end
+ $var wire 1 + _GEN_5 $end
+ $var wire 1 , _GEN_60 $end
+ $var wire 7 - io_opcod $end
+ $var wire 3 . _GEN_57 $end
+ $var wire 1 / io_op_b $end
+ $var wire 2 0 _GEN_42 $end
+ $var wire 2 1 _GEN_63 $end
+ $var wire 1 2 _GEN_39 $end
+ $var wire 1 3 _GEN_24 $end
+ $var wire 2 4 _GEN_30 $end
+ $var wire 1 5 _GEN_45 $end
+ $var wire 1 6 io_memwrite $end
+ $var wire 2 7 io_extend_sel $end
+ $var wire 3 8 _GEN_27 $end
+ $var wire 2 9 _GEN_33 $end
+ $var wire 2 : _GEN_54 $end
+ $var wire 1 ; _GEN_7 $end
+ $var wire 3 < io_aluop $end
+ $var wire 2 = _GEN_21 $end
+ $var wire 2 > io_next_pc $end
+ $var wire 2 ? _GEN_53 $end
+ $var wire 1 @ _GEN_56 $end
+ $var wire 2 A _GEN_41 $end
+ $var wire 2 B _GEN_35 $end
+ $var wire 1 C clock $end
+ $var wire 2 D _GEN_62 $end
+ $var wire 2 E io_op_a $end
+ $var wire 1 F _GEN_50 $end
+ $var wire 2 G _GEN_23 $end
+ $var wire 1 H _GEN_44 $end
+ $var wire 2 I _GEN_38 $end
+ $var wire 2 J _GEN_17 $end
+ $var wire 1 K _GEN_26 $end
+ $var wire 3 L _GEN_32 $end
+ $var wire 1 M _GEN_47 $end
+ $var wire 1 N io_memtoreg $end
+ $var wire 2 O _GEN_11 $end
+ $var wire 3 P _GEN_20 $end
+ $var wire 1 Q _GEN_29 $end
+ $var wire 3 R _GEN_6 $end
+ $var wire 3 S _GEN_14 $end
+ $var wire 2 T _GEN_64 $end
+ $var wire 1 U _GEN_58 $end
+ $var wire 1 V _GEN_52 $end
+ $var wire 1 W reset $end
+ $var wire 2 X _GEN_46 $end
+ $var wire 2 Y configtype $end
+ $var wire 1 Z _GEN_61 $end
+ $var wire 1 [ _GEN_34 $end
+ $var wire 32 \ io_instruction $end
+ $var wire 2 ] _GEN_28 $end
+ $var wire 3 ^ _GEN_49 $end
+ $var wire 3 _ _GEN_40 $end
+ $var wire 1 ` io_memread $end
+ $var wire 2 a _GEN_55 $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+b00 a
+0C
+b00 Y
+0;
+b00 D
+0Z
+b000 ^
+b00 >
+b00 ]
+0"
+b000 .
+b000 &
+0V
+0N
+b00 :
+03
+b00 4
+05
+0/
+b000 P
+b00 0
+b00000000000000000000000000000000 \
+0F
+0[
+b000 R
+b00 G
+0)
+b00 O
+0H
+b00 I
+0+
+b000 L
+0@
+0W
+b0000000 -
+b00 E
+0'
+b00 =
+b000 _
+b00 T
+06
+b00 ?
+0!
+0U
+0M
+b00 A
+0#
+b00 9
+b00 X
+02
+0Q
+b000 8
+0`
+0K
+b00 7
+b000 %
+b000 <
+0(
+b00 1
+b000 S
+0*
+b00 J
+0,
+b00 B
+0$
+$end
+#0
+b100 R
+1W
+1;
+#1
+1C
+#6
+13
+b0110011 -
+1"
+0C
+1@
+12
+0W
+1(
+1M
+b00000000000000000000000001010111 \
+#11
+1C
+#16
+03
+b0000000 -
+0"
+0C
+0@
+02
+0(
+0M
+b00000000000000000000000000000000 \
+#21
+1C
+#26
+0C

@@ -22,6 +22,7 @@ class Top extends Module{
     val imm =Module( new ImmdValGen1)
     val Jalr = Module( new jalr)
     val alu_cnt =Module( new alu_controler)
+    val config = Module( new configure)
 
     pc.io.addr := pc.io.pc_4
 
@@ -30,6 +31,7 @@ class Top extends Module{
 
     //controler
     controler.io.opcod:=inst_mem.io.inst(6,0)
+    config.io.zimm=inst_mem.io.inst
     
     // register file
     reg_file.io.write :=controler.io.regwrite
@@ -37,11 +39,13 @@ class Top extends Module{
     reg_file.io.rs2:=inst_mem.io.inst(24,20)
     reg_file.io.rd:=inst_mem.io.inst(11,7)
     
-    
+    config.io.rs1:=inst_mem.io.inst(19,15)
+    configtype.io.rd:=inst_mem.io.inst(11,7)
+    config.io.rs1_readdata:=reg_file.io.rd1
     // immediate 
     imm.io.instr:=inst_mem.io.inst
     imm.io.pc_val:=pc.io.pc_out
-    
+
     
     //alu cntrl
     alu_cnt.io.alu_op:=controler.io.aluop
