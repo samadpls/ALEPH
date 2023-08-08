@@ -27,11 +27,12 @@ class Top extends Module{
     pc.io.addr := pc.io.pc_4
 
     inst_mem.io.addr:=pc.io.pc_out(11,2)
+    controler.io.opcod:=inst_mem.io.inst(6,0)
     io.addr:=inst_mem.io.addr
 
     //controler
-    controler.io.opcod:=inst_mem.io.inst(6,0)
-    config.io.zimm=inst_mem.io.inst
+    controler.io.configtype:= inst_mem.io.inst(31,30)
+    config.io.zimm=inst_mem.io.inst(30,20)
     
     // register file
     reg_file.io.write :=controler.io.regwrite
@@ -40,8 +41,7 @@ class Top extends Module{
     reg_file.io.rd:=inst_mem.io.inst(11,7)
     
     config.io.rs1:=inst_mem.io.inst(19,15)
-    configtype.io.rd:=inst_mem.io.inst(11,7)
-    config.io.rs1_readdata:=reg_file.io.rd1
+    config.io.rd:=inst_mem.io.inst(11,7)
     // immediate 
     imm.io.instr:=inst_mem.io.inst
     imm.io.pc_val:=pc.io.pc_out
@@ -49,7 +49,6 @@ class Top extends Module{
     
     //alu cntrl
     alu_cnt.io.alu_op:=controler.io.aluop
-    alu.io.alu_Op:=alu_cnt.io.alu_op
     alu_cnt.io.func3:=inst_mem.io.inst(14,12)
     alu_cnt.io.func7:=inst_mem.io.inst(30)
 
@@ -58,7 +57,8 @@ class Top extends Module{
                 (controler.io.op_a=== "b01". U) -> pc.io.pc_4.asSInt,
                 (controler.io.op_a=== "b10". U) -> pc.io.pc_out.asSInt )
              )
-     //imm '
+     //config  '
+    config.io.rs1_readdata:=reg_file.io.rd1
     
     val mux_imm= MuxLookup (controler.io.extend_sel, 0.S, Array (
                 ("b00".U) -> imm.io.i_imm ,
@@ -66,6 +66,7 @@ class Top extends Module{
                 ("b10".U) -> imm.io.u_imm ,
                 ("b11".U) -> reg_file.io.rd2)
              )
+    alu.io.alu_Op:=alu_cnt.io.alu_op         
     //data ka d wala mux         
     val mux2_alu= Mux (controler.io.op_b , mux_imm, reg_file.io.rd2 ) 
     alu.io.alu_Op:=alu_cnt.io.x
@@ -110,8 +111,8 @@ class Top extends Module{
    
 
     //jal r
-    Jalr.io.pc_addr:= imm.io.i_imm
-    Jalr.io.addr:=reg_file.io.rd1
+    Jalr.io.addr:=reg_file.io.rd1 //input a
+    Jalr.io.pc_addr:= imm.io.i_imm //input b
 
     
 
@@ -121,7 +122,7 @@ class Top extends Module{
     //mux bara wala
     val mux_d= MuxLookup (controler.io.next_pc, false .B, Array (
                 ("b00". U) -> pc.io.pc_4 ,
-               ("b01".U)-> mux_b,
+                ("b01".U)-> mux_b,
                 ("b10".U) -> imm.io.uj_imm.asUInt,
                 ("b11".U) -> Jalr.io.out.asUInt)
              )
@@ -134,7 +135,7 @@ class Top extends Module{
     data_mem.io.MemRead:=controler.io.memread
 
     //data mux
-    val data_mux= Mux(controler.io.memtoreg,data_mem.io.out,alu.io.out)
+    val data_mux= Mux(controler.io.memtoreg,data_mem.io.out,MUX(controler.io.vset( vl ,alu.io.out)))
     reg_file.io.WriteData:=data_mux
 
 }

@@ -8,63 +8,7 @@
     "sink":"~controler|controler>io_extend_sel",
     "sources":[
       "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_regwrite",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_branch",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_op_a",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_op_b",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_memread",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_next_pc",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~controler|controler>io_memtoreg",
-    "sources":[
-      "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
+      "~controler|controler>io_configtype"
     ]
   },
   {
@@ -72,7 +16,31 @@
     "sink":"~controler|controler>io_aluop",
     "sources":[
       "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_op_a",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_memread",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_regwrite",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
     ]
   },
   {
@@ -80,7 +48,39 @@
     "sink":"~controler|controler>io_memwrite",
     "sources":[
       "~controler|controler>io_opcod",
-      "~controler|controler>io_instruction"
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_op_b",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_memtoreg",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_branch",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~controler|controler>io_next_pc",
+    "sources":[
+      "~controler|controler>io_opcod",
+      "~controler|controler>io_configtype"
     ]
   },
   {

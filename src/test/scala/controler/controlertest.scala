@@ -7,6 +7,7 @@ class cntrolert  extends FreeSpec with ChiselScalatestTester {
     "controler Test" in {
         test(new controler()){c=>
         c.io.opcod.poke("b0110011".U)
+        c.io.configtype.poke(1.U)
         c.clock.step(1)
         c.io.memwrite.expect(0.B)
         c.io.branch.expect(0.B)
@@ -20,5 +21,5 @@ class cntrolert  extends FreeSpec with ChiselScalatestTester {
         c.io.next_pc.expect("b00".U)
 
         }
-        }
-        }
+    }
+}

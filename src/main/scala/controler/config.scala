@@ -5,7 +5,7 @@ import chisel3.experimental._
 
 class configure extends Module {
   val io = IO (new Bundle {
-    val zimm = Input(UInt(10.W))
+    val zimm = Input(UInt(11.W))
     val rs1_readdata = Input(SInt(32.W))
     val rs1 =Input(UInt(32.W))
     val rd = Input(UInt(32.W))

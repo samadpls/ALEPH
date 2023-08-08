@@ -3,12 +3,14 @@ import chisel3._
 import chisel3.util._
 class control extends Bundle {
     val opcod = Input ( UInt ( 7.W ) )
+    val configtype = Input(UInt(2.W))
     val memwrite=Output(Bool())
     val branch=Output(Bool())
     val memread =Output(Bool())
     val regwrite=Output(Bool())
     val memtoreg=Output(Bool())
     val aluop=Output(UInt(3.W))
+    val vset =Output(Bool())
     val op_a=Output(UInt(2.W))
     val op_b=Output(Bool())
     val extend_sel=Output(UInt(2.W)) 
@@ -29,9 +31,11 @@ class controler extends Module {
         io.op_b:=0.B
         io.extend_sel:=0.U
         io.next_pc:="b00".U
+        io.vset:=0.B
     switch (io.opcod){
             is("b1010111".U){
-            when (configtype ==="b00".U || configtype ==="b01".U){ // vsetvli
+                io.vset:=1.B
+            when (io.configtype ==="b00".U || io.configtype ==="b01".U){ // vsetvli
                 io.regwrite:=1.B
                 io.memread:=0.B
                 io.memtoreg:=0.B
@@ -44,7 +48,7 @@ class controler extends Module {
                 io.next_pc:="b00".U
 
             }
-            .elsewhen(configtype ==="b10".U){ // vsetivli
+            .elsewhen(io.configtype ==="b10".U){ // vsetivli
                 io.regwrite:=1.B
                 io.memread:=1.B
                 io.memtoreg:=1.B
